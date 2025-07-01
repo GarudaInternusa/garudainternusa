@@ -736,7 +736,7 @@
                     <div class="play-button" id="playButton">
                         <i class="fas fa-play"></i>
                     </div>
-                    <h3 class="video-title">Petualangan Seru di Way Kambas</h3>
+                    <h3 class="video-title">Petualangan Seru di Kepulauan Seribu</h3>
                     <p class="video-description">Lihat pengalaman langsung wisatawan kami menjelajahi Pulau Pramuka Kepulauan seribu Jakarta Indonesia</p>
                 </div>
             </div>
@@ -754,10 +754,10 @@
             <div class="fallback-container" id="fallbackContainer">
                 <h3>Video Alternatif</h3>
                 <video class="fallback-video" controls id="fallbackVideo">
-                    <source src="https://www.youtube.com/watch?v=qDf0rCtN-5o" type="video/mp4">
+                    <source src="https://youtu.be/qDf0rCtN-5o" type="video/mp4">
                     Browser Anda tidak mendukung tag video.
                 </video>
-                <p class="video-description">Video pengalaman wisata ke Way Kambas</p>
+                <p class="video-description">Video pengalaman wisata Pulau Pramuka Kepulauan seribu Jakarta Indonesia</p>
             </div>
         </div>
     </section>
