@@ -727,7 +727,7 @@
             <div class="video-container">
                 <div class="video-wrapper">
                     <!-- Ganti VIDEO_ID dengan ID video YouTube Anda -->
-                    <iframe id="youtubeVideo" src="https://i.imgur.com/UFsaTys.mp4" 
+                    <iframe id="youtubeVideo" src="https://youtu.be/qDf0rCtN-5o" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                     </iframe>
