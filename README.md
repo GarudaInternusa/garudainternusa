@@ -716,7 +716,7 @@
         </div>
     </section>
 
-    <!-- Video Section -->
+    <!-- Video Section with Error Handling -->
     <section class="video-section" id="video">
         <div class="container">
             <div class="section-title">
@@ -724,21 +724,40 @@
                 <p>Saksikan momen-momen indah perjalanan bersama Garuda Internusa</p>
             </div>
             
-            <div class="video-container">
-                <div class="video-wrapper">
-                    <iframe id="youtubeVideo" src="https://youtu.be/qDf0rCtN-5o" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                    
-                    <div class="video-overlay">
-                        <div class="play-button" id="playButton">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <h3>Klik untuk Memutar Video</h3>
-                        <p>Pengalaman pelanggan kami di Bali</p>
+            <div class="video-wrapper">
+                <!-- YouTube Embed -->
+                <iframe id="youtubeVideo" 
+                    src="https://www.youtube.com/watch?v=qDf0rCtN-5o" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                
+                <div class="video-overlay" id="videoOverlay">
+                    <div class="play-button" id="playButton">
+                        <i class="fas fa-play"></i>
                     </div>
+                    <h3 class="video-title">Petualangan Seru di Way Kambas</h3>
+                    <p class="video-description">Lihat pengalaman langsung wisatawan kami menjelajahi Pulau Pramuka Kepulauan seribu Jakarta Indonesia</p>
                 </div>
+            </div>
+            
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Maaf, video tidak dapat diputar. Silakan coba lagi nanti atau gunakan alternatif di bawah.</p>
+                <button class="cta-button" id="reloadButton" style="margin-top: 10px;">
+                    <i class="fas fa-redo"></i> Coba Lagi
+                </button>
+            </div>
+            
+            <!-- Fallback Video -->
+            <div class="fallback-container" id="fallbackContainer">
+                <h3>Video Alternatif</h3>
+                <video class="fallback-video" controls id="fallbackVideo">
+                    <source src="https://www.youtube.com/watch?v=qDf0rCtN-5o" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <p class="video-description">Video pengalaman wisata ke Way Kambas</p>
             </div>
         </div>
     </section>
