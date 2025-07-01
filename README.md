@@ -564,7 +564,7 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBmaWxsPSIjZDRhZjM3IiBkPSJNMTI4IDI0QTEwNCAxMDQgMCAxIDAgMjMyIDEyOCAxMDQgMTA0IDAgMCAwIDEyOCAyNFptMCAxODhBODQgODQgMCAxIDEgMjEyIDEyOCA4NCA4NCAwIDAgMSAxMjggMjEyWm0tMjQtNjR2LTQ4aDQ4djQ4Wk0xODQgMTQ0SDcyYTE2IDE2IDAgMCAxIDAtMzJoMTEyYTE2IDE2IDAgMCAxIDAgMzJaIi8+PC9zdmc+" alt="Garuda Internusa Logo">
+                    <img src="https://i.imgur.com/4olZLmP.png" alt="Garuda Internusa Logo">
                     <h1>GARUDA <span>INTERNUSA</span></h1>
                 </div>
                 <ul class="nav-links">
@@ -591,7 +591,6 @@
     <title>Garuda Internusa - Tour and Travel Terbaik di Indonesia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ... (CSS sebelumnya tetap) ... */
 
         /* Video Section */
         .video-section {
