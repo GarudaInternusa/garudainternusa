@@ -1,0 +1,143 @@
+// Pastikan DOM selesai dimuat sebelum menjalankan script
+document.addEventListener('DOMContentLoaded', () => {
+    // === 1. Smooth Scroll untuk Anchor Links ===
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // === 2. Mobile Menu Toggle ===
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li a');
+
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Tutup menu saat klik di luar atau di link
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenu.contains(e.target)) {
+            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    });
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // === 3. Form Validasi dan Submit ===
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (contactForm.checkValidity()) {
+                alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.');
+                contactForm.reset();
+            } else {
+                contactForm.reportValidity();
+            }
+        });
+    }
+
+    // === 4. Highlight New Badges ===
+    const newBadges = document.querySelectorAll('.new-badge');
+    let badgeIndex = 0;
+    setInterval(() => {
+        newBadges.forEach(badge => {
+            badge.style.backgroundColor = badgeIndex % 2 === 0 ? 'var(--accent)' : '#2a8b2a';
+        });
+        badgeIndex++;
+    }, 1000);
+
+    // === 5. Video Embed Interaktif ===
+    const playButton = document.getElementById('playButton');
+    const videoIframe = document.getElementById('youtubeVideo');
+    const videoOverlay = document.getElementById('videoOverlay');
+    const errorMessage = document.getElementById('errorMessage');
+    const reloadButton = document.getElementById('reloadButton');
+    const fallbackContainer = document.getElementById('fallbackContainer');
+
+    // Ganti URL YouTube ke format embed
+    function updateVideoSrc() {
+        const videoId = 'qDf0rCtN-5o'; // Ganti dengan ID video Anda
+        videoIframe.src = `https://www.youtube.com/embed/ ${videoId}?autoplay=1&rel=0`;
+        videoOverlay.style.display = 'none';
+        errorMessage.style.display = 'none';
+        fallbackContainer.style.display = 'none';
+    }
+
+    playButton.addEventListener('click', updateVideoSrc);
+
+    // Pause video saat tidak terlihat
+    window.addEventListener('scroll', () => {
+        const videoSection = document.getElementById('video');
+        if (!videoSection) return;
+        const rect = videoSection.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            videoIframe.src = '';
+            videoOverlay.style.display = 'flex';
+        }
+    });
+
+    // === 6. Penanganan Error Video ===
+    videoIframe.onerror = () => {
+        errorMessage.style.display = 'block';
+    };
+
+    reloadButton.addEventListener('click', () => {
+        updateVideoSrc();
+        errorMessage.style.display = 'none';
+    });
+
+    // === 7. Auto Update Tahun di Footer ===
+    const copyrightYear = document.querySelector('.copyright p');
+    if (copyrightYear) {
+        const currentYear = new Date().getFullYear();
+        copyrightYear.innerHTML = `&copy; ${currentYear} Garuda Internusa. Hak Cipta Dilindungi. | Website oleh Tim Garuda Internusa`;
+    }
+
+    // === 8. Scroll Animation untuk Section ===
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(section);
+    });
+
+    // === 9. Sticky Header ===
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+});
